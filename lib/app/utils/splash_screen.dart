@@ -14,19 +14,9 @@ class SplashScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
-                'assets/logo/icon_hajifund.png', // Make sure this path is correct
-                width: MediaQuery.of(context).size.width * 0.4,
-                height: MediaQuery.of(context).size.width * 0.4,
-              ),
-              SizedBox(width: 0.5),
-              Text(
-                'HAJIFUND',
-                style: TextStyle(
-                  fontFamily: 'Sora',
-                  fontSize: MediaQuery.of(context).size.width * 0.08,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+                'assets/logo/hajifund.png', // Make sure this path is correct
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.width * 1,
               ),
             ],
           ),
