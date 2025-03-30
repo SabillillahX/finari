@@ -1,6 +1,6 @@
 # fe_hajifund
 
-A new Flutter project.
+A Simple App for you to crowd funding from investors
 
 ## Getting Started
 
