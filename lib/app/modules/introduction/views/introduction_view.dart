@@ -1,3 +1,4 @@
+import 'package:fe_hajifund/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -9,6 +10,8 @@ class IntroductionView extends GetView<IntroductionController> {
 
   @override
   Widget build(BuildContext context) {
+    final AuthController authC = Get.find<AuthController>();
+
     return IntroductionScreen(
       globalBackgroundColor: Colors.white,
       pages: [
@@ -74,7 +77,10 @@ class IntroductionView extends GetView<IntroductionController> {
           ),
           footer: Center(
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                authC.skipIntroduction();
+                Get.offAllNamed(Routes.AUTH);
+              },
               label: Text(
                 "Selanjutnya",
                 style: TextStyle(
