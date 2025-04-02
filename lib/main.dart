@@ -1,9 +1,10 @@
+import 'package:fe_hajifund/app/core/theme/app_fonts.dart';
 import 'package:fe_hajifund/app/routes/app_pages.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'app/controllers/auth_controller.dart';
-import 'app/utils/splash_screen.dart';
+import 'app/core/utils/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,12 +17,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return GetMaterialApp(
-    //   debugShowCheckedModeBanner: false,
-    //   title: 'Haji Fund',
-    //   initialRoute: Routes.LOGIN,
-    //   getPages: AppPages.routes,
-    // );
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Haji Fund',
+      theme: AppFonts.theme,
+      initialRoute: Routes.AUTH,
+      getPages: AppPages.routes,
+    );
     return FutureBuilder(
       future: Future.delayed(Duration(seconds: 1)),
       builder: (context, snapshot) {
