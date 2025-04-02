@@ -74,7 +74,9 @@ class IntroductionView extends GetView<IntroductionController> {
           ),
           footer: Center(
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Get.offAllNamed(Routes.AUTH);
+              },
               label: Text(
                 "Selanjutnya",
                 style: TextStyle(

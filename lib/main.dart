@@ -17,15 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Haji Fund',
-      theme: AppFonts.theme,
-      initialRoute: Routes.AUTH,
-      getPages: AppPages.routes,
-    );
+    // return GetMaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   title: 'Haji Fund',
+    //   theme: AppFonts.theme,
+    //   initialRoute: Routes.AUTH,
+    //   getPages: AppPages.routes,
+    // );
     return FutureBuilder(
-      future: Future.delayed(Duration(seconds: 1)),
+      future: Future.delayed(Duration(seconds: 2)),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SplashScreen();
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
                   authC.isSkipIntro.isTrue
                       ? authC.isAuth.isTrue
                           ? Routes.HOME
-                          : Routes.LOGIN
+                          : Routes.AUTH
                       : Routes.INTRODUCTION,
               getPages: AppPages.routes,
             ),
