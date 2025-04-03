@@ -3,10 +3,15 @@ import 'package:fe_hajifund/app/routes/app_pages.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get_storage/get_storage.dart';
 import 'app/controllers/auth_controller.dart';
 import 'app/core/utils/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await GetStorage.init();
+
   runApp(MyApp());
 }
 
@@ -25,7 +30,7 @@ class MyApp extends StatelessWidget {
     //   getPages: AppPages.routes,
     // );
     return FutureBuilder(
-      future: Future.delayed(Duration(seconds: 2)),
+      future: Future.delayed(Duration(seconds: 3)),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SplashScreen();
@@ -34,6 +39,7 @@ class MyApp extends StatelessWidget {
             () => GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Haji Fund',
+              theme: AppFonts.theme,
               initialRoute:
                   authC.isSkipIntro.isTrue
                       ? authC.isAuth.isTrue
