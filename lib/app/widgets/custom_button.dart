@@ -1,47 +1,55 @@
+import 'package:fe_hajifund/app/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
-  final bool isPrimary;
-  final double? width;
-  final double height;
-  final bool isEnabled;
+class CustomButton extends StatefulWidget {
+  @override
+  _CustomButtonState createState() => _CustomButtonState();
+}
 
-  const CustomButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.isPrimary = true,
-    this.width,
-    this.height = 50,
-    this.isEnabled = true,
-  });
+class _CustomButtonState extends State<CustomButton> {
+  Color _buttonColor = const Color(0xFFB39F53);
+  final AuthController controller = Get.find<AuthController>();
+
+  void _changeColor(Color color) {
+    setState(() {
+      _buttonColor = color;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final Color primaryColor = const Color(0xFFD4AF37);
-    final Color secondaryColor = Colors.grey.shade300;
-
     return SizedBox(
-      width: width ?? double.infinity,
-      height: height,
-      child: ElevatedButton(
-        onPressed: isEnabled ? onPressed : null,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: isPrimary ? primaryColor : secondaryColor,
-          foregroundColor: Colors.white,
-          disabledBackgroundColor: Colors.grey.shade400,
-          disabledForegroundColor: Colors.grey.shade200,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          elevation: isPrimary ? 2 : 0,
-        ),
-        child: Text(
-          'Masuk',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: isPrimary || !isEnabled ? Colors.white : Colors.black,
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: GestureDetector(
+        onTapDown:
+            (_) => _changeColor(Colors.grey), // Warna berubah saat ditekan
+        onTapUp:
+            (_) => _changeColor(
+              const Color(0xFFB39F53),
+            ), // Warna kembali saat dilepas
+        onTapCancel:
+            () => _changeColor(
+              const Color(0xFFB39F53),
+            ), // Jika tap dibatalkan (misal geser jari keluar tombol)
+        child: ElevatedButton(
+          onPressed: () {
+            controller.login();
+          },
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            backgroundColor: _buttonColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          child: const Text(
+            'Masuk',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

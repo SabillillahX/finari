@@ -66,11 +66,31 @@ class AuthView extends GetView<AuthController> {
               SizedBox(height: 20),
 
               // Button Masuk
-              CustomButton(
-                text: "Masuk",
-                onPressed: () {
-                  Get.offAllNamed(Routes.HOME);
-                },
+              CustomButton(),
+              SizedBox(height: 10),
+
+              // Daftar
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Belum punya akun?',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.03,
+                    ),
+                  ),
+                  SizedBox(width: 3),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      'Daftar',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: MediaQuery.of(context).size.width * 0.03,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
