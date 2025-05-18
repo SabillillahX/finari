@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           return Obx(
             () => GetMaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Haji Fund',
+              title: 'FINARI',
               theme: AppFonts.theme,
               initialRoute:
                   authC.isSkipIntro.isTrue
