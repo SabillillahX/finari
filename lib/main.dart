@@ -43,7 +43,9 @@ class MyApp extends StatelessWidget {
               initialRoute:
                   authC.isSkipIntro.isTrue
                       ? authC.isAuth.isTrue
-                          ? Routes.HOME
+                          ? (authC.userRole.value == 'investor'
+                              ? Routes.INVESTOR_DASHBOARD
+                              : Routes.ENTREPRENEUR_DASHBOARD)
                           : Routes.AUTH
                       : Routes.INTRODUCTION,
               getPages: AppPages.routes,

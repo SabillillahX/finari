@@ -48,7 +48,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     // Gold color for focused state, red for error state
-    Color goldColor = Color(0xFFD4AF37);
+    Color blueColor = Color(0xFF011936);
     Color errorColor = Colors.red;
 
     return Column(
@@ -63,7 +63,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             color:
                 widget.hasError
                     ? errorColor
-                    : (_isFocused ? goldColor : Colors.black),
+                    : (_isFocused ? blueColor : Colors.black),
           ),
         ),
         SizedBox(height: 5),
@@ -81,7 +81,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(
-                color: widget.hasError ? errorColor : goldColor,
+                color: widget.hasError ? errorColor : blueColor,
                 width: 2.0,
               ),
             ),

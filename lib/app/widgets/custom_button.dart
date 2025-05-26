@@ -8,7 +8,7 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  Color _buttonColor = const Color(0xFFB39F53);
+  Color _buttonColor = const Color(0xFF011936);
   final AuthController controller = Get.find<AuthController>();
 
   void _changeColor(Color color) {
@@ -26,11 +26,11 @@ class _CustomButtonState extends State<CustomButton> {
             (_) => _changeColor(Colors.grey), // Warna berubah saat ditekan
         onTapUp:
             (_) => _changeColor(
-              const Color(0xFFB39F53),
+              const Color(0xFF011936),
             ), // Warna kembali saat dilepas
         onTapCancel:
             () => _changeColor(
-              const Color(0xFFB39F53),
+              const Color(0xFF011936),
             ), // Jika tap dibatalkan (misal geser jari keluar tombol)
         child: ElevatedButton(
           onPressed: () {
