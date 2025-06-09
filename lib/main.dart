@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     //   debugShowCheckedModeBanner: false,
     //   title: 'Haji Fund',
     //   theme: AppFonts.theme,
-    //   initialRoute: Routes.AUTH,
+    //   initialRoute: Routes.ROLE_SELECTION,
     //   getPages: AppPages.routes,
     // );
     return FutureBuilder(

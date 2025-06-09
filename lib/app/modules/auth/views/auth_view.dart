@@ -95,7 +95,9 @@ class AuthView extends GetView<AuthController> {
                       ),
                       SizedBox(width: responsive.wp(0.7)),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(Routes.ROLE_SELECTION);
+                        },
                         child: Text(
                           'Daftar',
                           style: TextStyle(

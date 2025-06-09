@@ -8,6 +8,11 @@ abstract class Routes {
   static const AUTH = _Paths.AUTH;
   static const INVESTOR_DASHBOARD = _Paths.INVESTOR + _Paths.DASHBOARD;
   static const ENTREPRENEUR_DASHBOARD = _Paths.ENTREPRENEUR + _Paths.DASHBOARD;
+  static const INVESTOR_REGISTER = _Paths.INVESTOR + _Paths.REGISTER;
+  static const ENTREPRENEUR_REGISTER = _Paths.ENTREPRENEUR + _Paths.REGISTER;
+  static const PROFILE = _Paths.PROFILE;
+  static const REGISTER = _Paths.REGISTER;
+  static const ROLE_SELECTION = _Paths.ROLE_SELECTION;
 }
 
 abstract class _Paths {
@@ -18,4 +23,9 @@ abstract class _Paths {
   static const ENTREPRENEUR = '/entrepreneur';
   static const INVESTOR = '/investor';
   static const DASHBOARD = '/dashboard';
+  static const REGISTER = '/register';
+  static const PROFILE = '/profile';
+  static const ROLE_SELECTION = '/role-selection';
+  static const INVESTOR_REGISTER = '/register';
+  static const ENTREPRENEUR_REGISTER = '/register';
 }

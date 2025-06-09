@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/utils/auto_responsive.dart';
-import '../../../../core/utils/exit_dialog.dart';
-import '../../../../widgets/home/navbar.dart';
+import '../../../../core/utils/dialog_utils.dart';
+import '../../../../shared/navbar.dart';
+import '../../../../routes/app_pages.dart';
 import '../controllers/investor_dashboard_controller.dart';
 
 class InvestorDashboardView extends GetView<InvestorDashboardController> {
@@ -13,7 +14,7 @@ class InvestorDashboardView extends GetView<InvestorDashboardController> {
 
     return WillPopScope(
       // Exit dialog
-      onWillPop: () => showExitConfirmationDialog(context),
+      onWillPop: () => DialogUtils.showExitDialog(),
       child: Scaffold(
         body: SafeArea(
           child: SingleChildScrollView(
@@ -46,7 +47,29 @@ class InvestorDashboardView extends GetView<InvestorDashboardController> {
             ),
           ),
         ),
-        bottomNavigationBar: const CustomNavBar(),
+        bottomNavigationBar: CustomNavBar(
+          role: 'investor',
+          selectedIndex: 0, // Dashboard tab selected
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                // Dashboard - Already here
+                break;
+              case 1:
+                // Investments
+                Get.snackbar(
+                  'Info',
+                  'Investments page will be implemented soon',
+                  snackPosition: SnackPosition.BOTTOM,
+                );
+                break;
+              case 2:
+                // Profile
+                Get.toNamed(Routes.PROFILE);
+                break;
+            }
+          },
+        ),
       ),
     );
   }
